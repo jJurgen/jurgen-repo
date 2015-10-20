@@ -1,0 +1,267 @@
+@CHARSET "UTF-8";
+
+body {
+    background: url(../../resources/img/back3.png);
+    font-size: 14px;
+    font-family: Times New Roman;
+
+}
+
+#chatContainer {
+    position: relative;
+    margin: 40px auto;
+    width: 700px;
+    height: 600px;
+    background: url(../../resources/img/back2.png);	
+    -webkit-border-radius: 18px;
+    -moz-border-radius: 18px;	
+    border-radius: 18px;
+}
+
+#chatContainer .header {
+    width: 100%;
+    height: 50px;
+    background: url(../../resources/img/back1.png);
+    -webkit-border-top-left-radius: 18px;
+    -moz-border-radius-topleft: 18px;
+    border-top-left-radius: 18px;
+    -webkit-border-top-right-radius: 18px;
+    -moz-border-radius-topright: 18px;
+    border-top-right-radius: 18px;
+}
+
+#chatContainer .header .headerMessage{
+    display: inline-block;
+    margin:15px 60px 0px 60px;
+    font-size: 18px;
+    color: black;
+}
+
+#chatContainer .header .headerMessage a{
+    font-size:15px;
+    color: black;
+    text-decoration: none;
+}
+
+#chatContainer .header .headerMessage a:HOVER{
+    text-decoration: underline;
+}
+
+#chatContainer .chatArea {
+    display:block;
+    margin: 20px auto 0px;
+    height: 400px;
+    width: 600px;
+    font-size: 16px; 
+    border : 2px solid #c9b7a2;
+    border-radius: 10px;
+    padding: 5px;
+    background: #fff;
+    word-wrap: break-word;
+    overflow: auto;
+}
+
+
+#chatContainer .sendMessageBlock {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 82px;
+    background: url(../../resources/img/back1.png);
+    -webkit-border-bottom-left-radius: 18px;
+    -moz-border-radius-bottomleft: 18px;
+    border-bottom-left-radius: 18px;
+    -webkit-border-bottom-right-radius: 18px;
+    -moz-border-radius-bottomright: 18px;
+    border-bottom-right-radius: 18px;
+}
+
+#chatContainer .sendMessageBlock .textInfo{
+    display: block;
+    font-size: 18px;
+    margin: 5px 50px;
+}
+
+#chatContainer .sendMessageBlock .textInfo a{
+    font-style:italic;
+    color: black;
+    text-decoration: none;
+}
+
+#chatContainer .sendMessageBlock .textInfo a:HOVER{
+    text-decoration: underline;
+}
+
+#chatContainer .sendMessageForm{
+    margin: auto;
+    width: 600px;
+    height: 100%;
+}
+
+#chatContainer .sendMessageForm textarea{
+    width:550px;
+    height: 45px;
+    padding: 4px;
+    resize: none;
+    font-size: 12px;	
+}
+
+#chatContainer .sendMessageForm button{
+    background: #a2b0ba;
+    background-image: -webkit-linear-gradient(top, #a2b0ba, #707578);
+    background-image: -moz-linear-gradient(top, #a2b0ba, #707578);
+    background-image: -ms-linear-gradient(top, #a2b0ba, #707578);
+    background-image: -o-linear-gradient(top, #a2b0ba, #707578);
+    background-image: linear-gradient(to bottom, #a2b0ba, #707578);
+    color: #0a000a;
+    border: solid #5c5c5c 1px;
+    padding: 0px 15px 0px 15px;
+    font-size: 15px;  
+    text-decoration: none;
+}
+#chatContainer .sendMessageForm button:HOVER{
+    background: #707578;
+    background-image: -webkit-linear-gradient(top, #707578, #a2b0ba);
+    background-image: -moz-linear-gradient(top, #707578, #a2b0ba);
+    background-image: -ms-linear-gradient(top, #707578, #a2b0ba);
+    background-image: -o-linear-gradient(top, #707578, #a2b0ba);
+    background-image: linear-gradient(to bottom, #707578, #a2b0ba);
+    text-decoration: none;
+}
+
+
+#signInForm {
+    margin: 200px auto;
+    padding: 0 25px 0;
+    width: 280px;
+    background: #FEFEFE;
+    border: 1px solid #CAD8DE;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+    font: 14px/18px Arial, Tahoma, sans-serif;
+    color: #444;
+}
+
+#signInForm .field {
+    margin: 0 0 20px;
+}
+
+#signInForm .field label {
+    display: block;
+    margin: 0 0 10px;
+}
+
+#signInForm .field input {
+    font: 12px Arial, Tahoma, sans-serif;
+    color: #444;
+    width: 270px;
+    padding: 4px 4px;
+    border: 1px solid #D2D9DC;
+    border-radius: 3px;
+    box-shadow: inset 2px 2px 6px #EBEBEB, 0 0 0 5px #F7F9FA;
+    outline: none;
+}
+
+#signInForm .field input:FOCUS {
+    border-color: #B7D4EA;
+    box-shadow: inset 2px 2px 6px #EBEBEB, 0 0 4px #D0E6F6, 0 0 0 5px #F2F8FC;
+}
+
+
+#signInForm .submit {
+    height: auto;
+    padding: 10px 25px;
+    margin: 0 -25px 0 -25px;
+    background: #F0F5F7;
+    border-top: 1px solid #DDE0E8;
+    border-radius: 0 0 4px 4px;
+    box-shadow: inset 0 1px #FFF, inset -1px -1px #F7FAFB, inset 1px 0 #F7FAFB;
+    font-size: 11px;
+}
+
+#signInForm .submit .remember {
+    display: block;
+    margin: 5px 0 0;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+#signInForm .errorMessage {
+    margin: 10px 10px;
+    font-size: 14px;
+    color: #c22330;
+}
+
+#signInForm .submit .remember input {
+    margin: 0 4px 0 0;
+    vertical-align: middle;
+}
+
+#signInForm .submit .regButton {
+    margin: 0 0 0 100px;
+    border: 0px solid #0a3c59;
+    background: #3e779d;
+    background: -webkit-gradient(linear, left top, left bottom, from(#65a9d7), to(#3e779d));
+    background: -webkit-linear-gradient(top, #65a9d7, #3e779d);
+    background: -moz-linear-gradient(top, #65a9d7, #3e779d);
+    background: -ms-linear-gradient(top, #65a9d7, #3e779d);
+    background: -o-linear-gradient(top, #65a9d7, #3e779d);
+    background-image: -ms-linear-gradient(top, #65a9d7 0%, #3e779d 100%);
+    padding: 3px 6px;
+    -webkit-box-shadow: rgba(255, 255, 255, 0.4) 0 0px 0, inset rgba(255, 255, 255, 0.4) 0 0px 0;
+    -moz-box-shadow: rgba(255, 255, 255, 0.4) 0 0px 0, inset rgba(255, 255, 255, 0.4) 0 0px 0;
+    box-shadow: rgba(255, 255, 255, 0.4) 0 0px 0, inset rgba(255, 255, 255, 0.4) 0 0px 0;
+    text-shadow: #7ea4bd 0 1px 0;
+    color: #000;
+    font-size: 16px;
+    font-family: helvetica, serif;
+}
+
+#signInForm .submit .signInButton {
+    float:right;
+    border: 0px solid #0a3c59;
+    background: #3e779d;
+    background: -webkit-gradient(linear, left top, left bottom, from(#65a9d7), to(#3e779d));
+    background: -webkit-linear-gradient(top, #65a9d7, #3e779d);
+    background: -moz-linear-gradient(top, #65a9d7, #3e779d);
+    background: -ms-linear-gradient(top, #65a9d7, #3e779d);
+    background: -o-linear-gradient(top, #65a9d7, #3e779d);
+    background-image: -ms-linear-gradient(top, #65a9d7 0%, #3e779d 100%);
+    padding: 3px 6px;
+    -webkit-box-shadow: rgba(255, 255, 255, 0.4) 0 0px 0, inset rgba(255, 255, 255, 0.4) 0 0px 0;
+    -moz-box-shadow: rgba(255, 255, 255, 0.4) 0 0px 0, inset rgba(255, 255, 255, 0.4) 0 0px 0;
+    box-shadow: rgba(255, 255, 255, 0.4) 0 0px 0, inset rgba(255, 255, 255, 0.4) 0 0px 0;
+    text-shadow: #7ea4bd 0 1px 0;
+    color: #000;
+    font-size: 16px;
+    font-family: helvetica, serif;
+}
+
+#signInForm .submit button:HOVER {
+    border: 0px solid #0a3c59;
+    text-shadow: #1e4158 0 1px 0;
+    background: #3e779d;
+    background: -webkit-gradient(linear, left top, left bottom, from(#65a9d7), to(#3e779d));
+    background: -webkit-linear-gradient(top, #65a9d7, #3e779d);
+    background: -moz-linear-gradient(top, #65a9d7, #3e779d);
+    background: -ms-linear-gradient(top, #65a9d7, #3e779d);
+    background: -o-linear-gradient(top, #65a9d7, #3e779d);
+    background-image: -ms-linear-gradient(top, #65a9d7 0%, #3e779d 100%);
+    color: #fff;
+    cursor: pointer;
+}
+
+#signInForm .submit button:ACTIVE {
+    text-shadow: #1e4158 0 1px 0;
+    border: 0px solid #0a3c59;
+    background: #65a9d7;
+    background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#3e779d));
+    background: -webkit-linear-gradient(top, #3e779d, #65a9d7);
+    background: -moz-linear-gradient(top, #3e779d, #65a9d7);
+    background: -ms-linear-gradient(top, #3e779d, #65a9d7);
+    background: -o-linear-gradient(top, #3e779d, #65a9d7);
+    background-image: -ms-linear-gradient(top, #3e779d 0%, #65a9d7 100%);
+    color: #fff;
+}
+
+

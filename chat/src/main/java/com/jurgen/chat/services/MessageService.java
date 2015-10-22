@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 public class MessageService {
 
     private static final Logger LOG = LoggerFactory.getLogger(MessageService.class);
-    
+
     @Autowired
     private ChatDAO dao;
 

@@ -9,33 +9,33 @@ import org.springframework.stereotype.Service;
 
 @Service(value = "userService")
 public class UserService {
-    
+
     private static final Logger LOG = LoggerFactory.getLogger(UserService.class);
-    
+
     @Autowired
     private ChatDAO dao;
-    
+
     public UserService() {
         LOG.info("UserService created");
     }
-    
-    public boolean addUser(String nickname, String password) {
-        return dao.addUser(nickname, password);
+
+    public void addUser(String nickname, String password) {
+        dao.addUser(nickname, password);
     }
-    
+
     public User signIn(String nickname, String password) {
         if (dao.canUserSignIn(nickname, password)) {
             return dao.getUser(nickname, password);
         }
         return null;
     }
-    
+
     public ChatDAO getDao() {
         return dao;
     }
-    
+
     public void setDao(ChatDAO dao) {
         this.dao = dao;
     }
-    
+
 }

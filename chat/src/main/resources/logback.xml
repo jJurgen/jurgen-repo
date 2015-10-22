@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration debug="true">
+<configuration debug="false">
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%d %blue(%-5level) [thread] %magenta(%logger{0}): %msg %n</pattern>
+            <pattern>%d{dd-MM-yyyy hh:mm:ss} %blue(%-5level) %magenta([%-20.30logger{0}]): %msg%n</pattern>
         </encoder>
     </appender>
     
@@ -13,13 +13,14 @@
             <file>c:/logs/chat-${byDay}-log.txt</file>
             <append>false</append>
             <encoder>
-                <pattern>%d{dd-MM-yyyy hh:mm:ss} %-5level [%-20.30logger{0}]: %msg%n</pattern>
-                 <outputPatternAsHeader>true</outputPatternAsHeader>
+                <pattern>%-30(%d{dd-MM-yyyy hh:mm:ss} [%thread]) %-5level [%-20.30logger{0}]: %msg%n</pattern>
+                <outputPatternAsHeader>true</outputPatternAsHeader>
             </encoder>                  
         </appender>
     </logger>
       
-    <logger name="com.jurgen" level="WARN">
+    <!-- Logger which write logs to file and use ThresholdFilter(on WARN level) --> 
+    <!-- <logger name="com.jurgen" level="WARN">
         <appender name="FILE" class="ch.qos.logback.core.FileAppender">
             <file>c:/logs/chat-${byDay}-warn-log.txt</file>
             <append>false</append>
@@ -31,7 +32,7 @@
             </filter>  
         </appender>
     </logger>
-    
+    -->
     <root level="DEBUG">
         <appender-ref ref="STDOUT" />
     </root>

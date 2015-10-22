@@ -57,11 +57,8 @@ public class MainController {
     @RequestMapping(value = "/RegisterUser", method = RequestMethod.POST)
     public String registerUser(@RequestParam(value = "nickname") String nickname,
             @RequestParam(value = "password") String password) {
-        if (userService.addUser(nickname, password)) {
-            return "redirect:/";
-        } else {
-             return "redirect:/Register";
-        }
+        userService.addUser(nickname, password);
+        return "redirect:/";
     }
 
     @RequestMapping(value = "/checkUser", method = RequestMethod.POST)

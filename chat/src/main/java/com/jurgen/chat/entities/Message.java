@@ -12,8 +12,7 @@ public class Message {
     public Message(String message, String author) {
         this.message = message;
         this.author = author;
-        time = new Time(new Date().getTime());
-        System.out.println(time.toString());
+        time = new Time(new Date().getTime());     
     }
 
     public Message(String message, String author, Time time) {

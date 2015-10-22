@@ -12,11 +12,12 @@ import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ChatDAO {
-
+    private static final Logger LOG = LoggerFactory.getLogger(ChatDAO.class);
+    
     private final static String ADD_USER = "INSERT INTO chatdb.users(nickname, password)  VALUES(?,?)";
     private final static String GET_USER_COUNT = "SELECT COUNT(*) FROM chatdb.users WHERE users.nickname = ? AND users.password = ?";
     private final static String GET_USER = "SELECT * FROM chatdb.users WHERE users.nickname = ? AND users.password = ?";
@@ -33,6 +34,7 @@ public class ChatDAO {
         mysql = new com.mysql.jdbc.Driver();
         DriverManager.registerDriver(mysql);
         conn = DriverManager.getConnection(CONNECTION_URL, USER, PASSWORD);
+        LOG.warn("dao created!");
     }
 
     public boolean addUser(String nickname, String password) {
@@ -44,6 +46,7 @@ public class ChatDAO {
             ex.printStackTrace();
             return false;
         }
+        LOG.info("User: " + nickname + " added");
         return true;
     }
 
@@ -72,6 +75,7 @@ public class ChatDAO {
                 String nick = rs.getString("nickname");
                 String pass = rs.getString("password");
                 User user = new User(nick, pass);
+                LOG.info("User: " + nickname + " was taken from db");
                 return user;
             }
         } catch (SQLException ex) {
@@ -91,6 +95,7 @@ public class ChatDAO {
             ex.printStackTrace();
             return false;
         }
+        LOG.info(author + " sended message:" + content.substring(0,Math.min(5, content.length())));
         return true;
     }
 
@@ -104,6 +109,7 @@ public class ChatDAO {
                 String author = rs.getString("nickname");
                 messages.add(new Message(content, author, time));
             }
+            LOG.debug("All messages was taken from db");
             return messages;
         } catch (SQLException ex) {
             ex.printStackTrace();

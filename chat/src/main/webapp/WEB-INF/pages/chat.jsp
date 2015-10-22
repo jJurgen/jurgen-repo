@@ -45,10 +45,13 @@
                 </c:choose>
             </div>
         </div>	
-
+        <input  id="testInput" type="text" lang="30"> 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script>
             $(document).ready(function () {
+                
+               // $("#testInput").prop('value','123');
+                $("#testInput").attr('value','123');
                 update();                
                 function update() {
                     $.ajax({
@@ -65,7 +68,7 @@
                     });
                 }
                 setInterval(update, 2000);
-
+                
                 $('#sendMessage').click(function () {
                     var message = $(".messageArea").val();
                     $.ajax({

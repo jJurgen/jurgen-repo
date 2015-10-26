@@ -1,13 +1,16 @@
 package com.jurgen.chat.controllers;
 
-import com.google.gson.Gson;
-import com.jurgen.chat.entities.Message;
-import com.jurgen.chat.entities.User;
+import com.jurgen.chat.domain.Message;
+import com.jurgen.chat.domain.User;
 import com.jurgen.chat.services.MessageService;
 import com.jurgen.chat.services.UserService;
+import java.io.IOException;
 import java.util.List;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
+import org.codehaus.jackson.map.ObjectMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -15,6 +18,8 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/")
 public class MainController {
+
+    private static final Logger LOG = LoggerFactory.getLogger(MessageService.class);
 
     @Resource(name = "messageService")
     private MessageService messageService;
@@ -30,12 +35,19 @@ public class MainController {
 
     @RequestMapping(value = "/sendMessage", method = RequestMethod.POST)
     @ResponseBody
-    public String sendMessage(@RequestParam(value = "message") String message, HttpSession session) {
+    public String sendMessage(@RequestParam(value = "message") String message, HttpSession session) throws IOException {
         User currentUser = (User) session.getAttribute("currentUser");
-        messageService.addMessage(new Message(message, currentUser.getNickname()));
-        Gson gson = new Gson();
-        String json = gson.toJson("success");
-        return json;
+        String msg = message.trim().replaceAll(" +", " ");
+        ObjectMapper mapper = new ObjectMapper();
+        String resp;
+        if (msg.length() != 0) {
+            messageService.addMessage(new Message(msg, currentUser));
+            resp = mapper.writeValueAsString("success");
+        }
+        else{
+             resp = mapper.writeValueAsString("empty message");
+        }         
+        return resp;
     }
 
     @RequestMapping(value = "/signOut", method = RequestMethod.GET)
@@ -76,9 +88,15 @@ public class MainController {
     @ResponseBody
     public String getMessages() {
         List<Message> messages = messageService.getMessages();
-        Gson gson = new Gson();
-        String json = gson.toJson(messages);
-        return json;
+        ObjectMapper mapper = new ObjectMapper();
+        String json;
+        try {
+            json = mapper.writeValueAsString(messages);
+            return json;
+        } catch (IOException ex) {
+            LOG.error("Can't convert List<Message> to Json with error: " + ex.getMessage());
+            return "";
+        }
     }
 
     public MessageService getMessageService() {

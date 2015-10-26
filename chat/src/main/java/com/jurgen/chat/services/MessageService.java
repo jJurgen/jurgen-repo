@@ -1,8 +1,10 @@
 package com.jurgen.chat.services;
 
-import com.jurgen.chat.daos.ChatDAO;
-import com.jurgen.chat.entities.Message;
+import com.jurgen.chat.domain.Message;
 import java.util.List;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,29 +13,31 @@ import org.springframework.stereotype.Service;
 @Service(value = "messageService")
 public class MessageService {
 
-    private static final Logger LOG = LoggerFactory.getLogger(MessageService.class);
-
     @Autowired
-    private ChatDAO dao;
+    private SessionFactory sessionFactory;
+    private static final Logger LOG = LoggerFactory.getLogger(MessageService.class);
 
     public MessageService() {
         LOG.info("MessageService created");
     }
 
     public void addMessage(Message message) {
-        dao.addMessage(message.getMessage(), message.getAuthor());
+        Session session = sessionFactory.openSession();
+        try {
+            session.save(message);
+        } finally {
+            session.close();
+        }
     }
 
     public List<Message> getMessages() {
-        return dao.getMessages();
+        Session session = sessionFactory.openSession();
+        try {
+            Query query = session.createQuery("from Message");
+            List messages = query.list();
+            return messages;
+        } finally {
+            session.close();
+        }
     }
-
-    public ChatDAO getDao() {
-        return dao;
-    }
-
-    public void setDao(ChatDAO dao) {
-        this.dao = dao;
-    }
-
 }

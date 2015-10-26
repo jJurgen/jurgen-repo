@@ -49,10 +49,10 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script>
             $(document).ready(function () {
-                
-               // $("#testInput").prop('value','123');
-                $("#testInput").attr('value','123');
-                update();                
+
+                // $("#testInput").prop('value','123');
+                $("#testInput").attr('value', '123');
+                update();
                 function update() {
                     $.ajax({
                         url: "getMessages",
@@ -61,14 +61,14 @@
                         success: function (data) {
                             var result = "";
                             for (var i in data) {
-                                result += data[i].time + ":" + data[i].author + ": " + data[i].message + "\n";
+                                result += data[i].time + "  " + data[i].author.nickname + ": " + data[i].content + "\n";
                             }
                             $(".chatArea").text(result);
                         }
                     });
                 }
                 setInterval(update, 2000);
-                
+
                 $('#sendMessage').click(function () {
                     var message = $(".messageArea").val();
                     $.ajax({
@@ -78,8 +78,13 @@
                             message: message
                         },
                         dataType: 'json',
-                        success: function (data) {                           
-                           $(".messageArea").val("");
+                        success: function (data) {
+                            if (data === "success") {
+                                $(".messageArea").val("");
+                                $(".messageArea").removeAttr("placeholder");
+                            } else {
+                                $(".messageArea").attr("placeholder", data);
+                            }
                         }
                     });
                 });

@@ -2,12 +2,13 @@
 <configuration debug="false">
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%d{dd-MM-yyyy hh:mm:ss} %blue(%-5level) %magenta([%-20.30logger{0}]): %msg%n</pattern>
+            <pattern>%blue(%-5level) %magenta([%-20.30logger{0}]): %msg%n</pattern>
         </encoder>
     </appender>
     
     <timestamp key="byDay" datePattern="yyyMMdd"/>
         
+    <!--
     <logger name="com.jurgen.chat" level="DEBUG">
         <appender name="FILE" class="ch.qos.logback.core.FileAppender">
             <file>c:/logs/chat-${byDay}-log.txt</file>
@@ -18,7 +19,7 @@
             </encoder>                  
         </appender>
     </logger>
-      
+      -->
     <!-- Logger which write logs to file and use ThresholdFilter(on WARN level) --> 
     <!-- <logger name="com.jurgen" level="WARN">
         <appender name="FILE" class="ch.qos.logback.core.FileAppender">

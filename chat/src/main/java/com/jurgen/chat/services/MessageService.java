@@ -18,7 +18,7 @@ public class MessageService {
     private static final Logger LOG = LoggerFactory.getLogger(MessageService.class);
 
     public MessageService() {
-        LOG.info("MessageService created");
+        LOG.info("messageService created");
     }
 
     public void addMessage(Message message) {

@@ -10,19 +10,19 @@
         <title>Sign in</title>
     </head>
     <body>
-        <form id="signInForm" action="checkUser" method="POST">
+        <c:url value="/login" var="loginUrl" />
+        <form id="signInForm" name="loginForm" action="${loginUrl}" method="POST">
             <c:choose>
                 <c:when test="${not empty requestScope.authError}">
-                    <label class="errorMessage"><c:out
-                            value="${requestScope.authError}" /></label>
-                    </c:when>
-                    <c:otherwise>
+                    <label class="errorMessage"><c:out value="${requestScope.authError}" /></label>
+                </c:when>
+                <c:otherwise>
                     <label class="errorMessage"></label>
                 </c:otherwise>
             </c:choose>
 
             <div class="field">
-                <label>Nickname:</label> <input type="text" name="nickname" maxlength="35">
+                <label>Nickname:</label> <input type="text" name="username" maxlength="35">
             </div>
             <div class="field">
                 <label>Password:</label> <input type="password"	name="password" maxlength="35">

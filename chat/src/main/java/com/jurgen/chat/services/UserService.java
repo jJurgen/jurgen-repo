@@ -7,10 +7,13 @@ import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service(value = "userService")
-public class UserService {
+public class UserService implements UserDetailsService {
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -18,30 +21,34 @@ public class UserService {
     private static final Logger LOG = LoggerFactory.getLogger(UserService.class);
 
     public UserService() {
-        LOG.info("UserService created");
+        LOG.info("userService created");
     }
 
-    public void addUser(String nickname, String password) {
+    public void addUser(User user) {
         final Session session = sessionFactory.openSession();
         try {
-            User user = new User(nickname, password);
+            session.beginTransaction();
             session.save(user);
+            session.getTransaction().commit();
         } finally {
             session.close();
         }
     }
 
-    public User signIn(String nickname, String password) {
+    @Override
+    public UserDetails loadUserByUsername(String nickname) throws UsernameNotFoundException {
         Session session = sessionFactory.openSession();
         try {
-            Query query = session.createQuery("from User where nickname = :nickname and password = :password");
+            Query query = session.createQuery("from User where nickname = :nickname");
             query.setParameter("nickname", nickname);
-            query.setParameter("password", password);
             User user = (User) query.uniqueResult();
+            if (user == null) {
+                throw new UsernameNotFoundException("nickname: " + nickname + "not found");
+            }
             return user;
         } finally {
             session.close();
-        }      
+        }
     }
 
     public SessionFactory getSessionFactory() {

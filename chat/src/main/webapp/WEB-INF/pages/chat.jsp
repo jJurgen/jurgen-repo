@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 <html>
     <link href="resources/css/chatStyles.css" rel="stylesheet"
           type="text/css" />
@@ -12,46 +13,35 @@
         <div id="chatContainer">
             <div class="header">
                 <div class="headerMessage">
-                    <c:choose>
-                        <c:when test="${not empty currentUser}">                        
-                            <c:out value="Hello, ${currentUser.nickname}"></c:out>
-                                <a class ="sign_out" href="signOut">(sign out)</a>
-                        </c:when>
-                        <c:otherwise>
-
-                        </c:otherwise>
-                    </c:choose>
+                    <sec:authorize access="isAuthenticated()">
+                        <sec:authentication property="principal.username" var="username"/>
+                        <c:out value="Hello, ${username}"/>
+                        <a class ="sign_out" href="<c:url value="/logout"/>">(sign out)</a>
+                    </sec:authorize>                    
                 </div>
             </div>
-
             <textarea class="chatArea" readonly></textarea>
-
             <div class="sendMessageBlock">
-                <c:choose>
-                    <c:when test="${not empty currentUser}">
-                        <div class="sendMessageForm" >
-                            <textarea class="messageArea" name="message" maxlength="300"></textarea>
-                            <button id="sendMessage" type="submit">Send</button>
-                        </div>
-                    </c:when>
-                    <c:otherwise>
-                        <label class="textInfo">
-                            You aren't logged in. Please 
-                            <a href="SignIn">Sign In</a>
-                            or
-                            <a href="Register">Create account</a>
-                        </label>
-                    </c:otherwise>
-                </c:choose>
+                <sec:authorize access="isAuthenticated()">
+                    <div class="sendMessageForm" >
+                        <textarea class="messageArea" name="message" maxlength="300"></textarea>
+                        <button id="sendMessage" type="submit">Send</button>
+                    </div>
+                </sec:authorize>
+                <sec:authorize access="not isAuthenticated()">
+                    <label class="textInfo">
+                        You aren't logged in. Please 
+                        <a href="SignIn">Sign In</a>
+                        or
+                        <a href="Register">Create account</a>
+                    </label>
+                </sec:authorize>
             </div>
         </div>	
-        <input  id="testInput" type="text" lang="30"> 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script>
             $(document).ready(function () {
 
-                // $("#testInput").prop('value','123');
-                $("#testInput").attr('value', '123');
                 update();
                 function update() {
                     $.ajax({

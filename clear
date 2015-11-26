@@ -1,0 +1,35 @@
+[33mcommit e82d154b8a76180433ce5aee3240dc68b6116efe[m
+Author: jurgen <jjurgenzak@gmail.com>
+Date:   Mon Oct 26 13:38:52 2015 +0200
+
+    hibernate used instead of JDBC
+
+[33mcommit 9167475a710abac512d10232e63632352c90a216[m
+Author: jurgen <jjurgenzak@gmail.com>
+Date:   Fri Oct 23 09:29:43 2015 +0300
+
+    Added property for DataSource and used RowMapper in DAO
+
+[33mcommit 8c4ba3ba36617bf7c20f51b96708690e209caf29[m
+Author: jurgen <jjurgenzak@gmail.com>
+Date:   Thu Oct 22 12:45:31 2015 +0300
+
+    added using of JdbcTemplate
+
+[33mcommit cdba0de22287ef78bc46ddc41ba9d66228bf7222[m
+Author: jurgen <jjurgenzak@gmail.com>
+Date:   Thu Oct 22 08:34:09 2015 +0300
+
+    added logback and some logging
+
+[33mcommit 9683101e3ba2612da7b11bfc267e7709a2ffa607[m
+Author: jurgen <jjurgenzak@gmail.com>
+Date:   Tue Oct 20 15:09:39 2015 +0300
+
+    first version(spring mvc,jdbc,jquery(ajax) of chat)
+
+[33mcommit 33b225f668a8a4eed6a4c4bef75ecf259c05926d[m
+Author: jurgen <jjurgenzak@gmail.com>
+Date:   Mon Oct 19 15:56:44 2015 +0300
+
+    init

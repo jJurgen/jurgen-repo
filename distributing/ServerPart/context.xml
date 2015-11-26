@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	   		http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
+	   		
+	 
+	 <bean id="mainFolder" class="java.lang.String">
+	 	<constructor-arg value="D:\ServerPart\" />	 		
+	 </bean>
+	 
+	 <bean id="filePort" class="java.lang.Integer">
+		<constructor-arg value="5534" />
+	</bean>
+	
+	<bean id="PORT" class="java.lang.Integer">
+		<constructor-arg value="5533" />
+	</bean>
+	   		
+	<bean id="mainFrame" class="com.jurgen.distributing.server.frames.MainFrame">
+		<constructor-arg name="title" value="Main Frame" />
+		<constructor-arg name="mainFolder" ref="mainFolder"/>
+		<property name="serverManager">
+	 		<bean id="serverManager" class="com.jurgen.distributing.server.classes.ServerManager">
+				<constructor-arg ref="PORT"/>
+				<property name="mainFrame" ref="mainFrame" />
+			</bean>
+	 	</property>	 
+	</bean>
+	
+	<bean id="rangesDealer" class="com.jurgen.distributing.server.classes.RangesDealer" />
+	
+	<bean id="fileSender"   class="com.jurgen.distributing.server.classes.FileSender" >
+		<property name="mainFrame" ref="mainFrame" />
+		<property name="PORT" ref="filePort" />
+	</bean>
+	
+	<bean id="connectionHandler" class="com.jurgen.distributing.server.classes.ConnectionHandler" scope="prototype">
+		<property name="mainFrame" ref="mainFrame" />
+		<property name="clientId" ref="currentId" />
+		<property name="xmlCreator" ref="xmlCreator" />
+		<property name="xmlParser" ref="xmlParser" />
+		<property name="rangesDealer" ref="rangesDealer" />
+		<property name="fileSender" ref="fileSender" />
+	</bean>
+	
+	
+	
+	<bean id="xmlCreator" class="com.jurgen.distributing.server.classes.XMLCreator"/>
+	
+	<bean id="xmlParser" class="com.jurgen.distributing.server.classes.XMLParser" />
+	
+	<bean id="idGenerator" class="com.jurgen.distributing.server.classes.IdGenerator"/>
+	
+	<bean id="currentId" class="java.lang.Integer" factory-bean="idGenerator"  factory-method="getCurrentId" scope="prototype"/>
+	
+	
+	   		
+</beans>

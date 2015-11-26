@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	   		http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
+	   		
+	 
+	 <bean id="mainFolder" class="java.lang.String">
+	 	<constructor-arg value="D:\ClientPart\" />	 		
+	 </bean>
+	 
+	 <bean id="filePort" class="java.lang.Integer">
+		<constructor-arg value="5534" />
+	</bean>
+	
+	<bean id="PORT" class="java.lang.Integer">
+		<constructor-arg value="5533" />
+	</bean>
+	   		
+	<bean id="mainFrame" class="com.jurgen.distributing.client.frames.MainFrame">
+		<constructor-arg name="mainFolder" ref="mainFolder"/>
+		<property name="connectionHandler">
+			<bean id="connectionHandler" class="com.jurgen.distributing.client.classes.ConnectionHandler">
+				<property name="mainFrame" ref="mainFrame" />
+				<property name="xmlCreator" ref="xmlCreator" />
+				<property name="xmlParser" ref="xmlParser" />
+				<property name="mainFolder" ref="mainFolder"/>
+				<property name="fileReciever" ref="fileReciever" />
+				<property name="zipWorker">
+					<bean id="zipWorker" class="com.jurgen.distributing.client.classes.ZipWorker">
+						<property name="mainFrame" ref="mainFrame" />					
+					</bean>
+				</property>	 						
+			</bean>
+		</property>
+		
+	</bean>
+	
+	
+	
+	<bean id="xmlCreator" class="com.jurgen.distributing.client.classes.XMLCreator"/>
+	
+	<bean id="xmlParser" class="com.jurgen.distributing.client.classes.XMLParser" />
+	
+	<bean id="fileReciever" class="com.jurgen.distributing.client.classes.FileReciever">
+		<property name="PORT" ref="filePort" />
+		<property name="mainFrame" ref="mainFrame" />
+	</bean>
+	   		
+</beans>

@@ -1,0 +1,967 @@
+@CHARSET "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #f5f5f5;
+    font-family: Times New Roman;
+    font-size: 14px;
+}
+
+#container {
+    margin: 0px auto;
+    width: 800px;
+    height: auto;
+}
+
+#header {
+    height: 75px;
+}
+
+#headerNavigationPanel {
+    position: relative;
+    background: #FEFEFE;
+    width: 300px;
+    height: 100%;
+    float: right;
+}
+
+#headerNavigationPanel label{
+    display: block;
+    margin: 5px 5px 0;
+    width: 90%;
+    height: 20px;
+    font-size: 16px;
+}
+
+#headerBannerPanel {
+    position: relative;
+    width: 497px;
+    height: 100%;
+    float: left;
+    border-right: 3px solid #f2e3d2;
+    background: #c1c8d9;
+    background: -webkit-gradient(linear, left top, left bottom, from(#e8e9f0), to(#c1c8d9));
+    background: -webkit-linear-gradient(top, #e8e9f0, #c1c8d9);
+    background: -moz-linear-gradient(top, #e8e9f0, #c1c8d9);
+    background: -ms-linear-gradient(top, #e8e9f0, #c1c8d9);
+    background: -o-linear-gradient(top, #e8e9f0, #c1c8d9);
+    background-image: -ms-linear-gradient(top, #e8e9f0 0%, #c1c8d9 100%);
+    width: 497px;
+}
+
+#headerBannerMessage {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+#headerBannerMessage label {
+    margin: 0 0 0 50px;
+    font-size: 20px;
+}
+
+#headerBannerMessage .nickname {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+}
+
+#headerBannerMessage .sign_out {
+    font-size: 15px;
+    color: black;
+    text-decoration: none;
+}
+
+#headerBannerMessage a:hover {
+    text-decoration: underline;
+}
+
+#navigateInput {
+    margin: 0px 50px;
+}
+
+#navigation {
+    height: 30px;
+    background: #d18888;
+    background: -webkit-gradient(linear, left top, left bottom, from(#e6c1c1), to(#d18888));
+    background: -webkit-linear-gradient(top, #e6c1c1, #d18888);
+    background: -moz-linear-gradient(top, #e6c1c1, #d18888);
+    background: -ms-linear-gradient(top, #e6c1c1, #d18888);
+    background: -o-linear-gradient(top, #e6c1c1, #d18888);
+    background-image: -ms-linear-gradient(top, #e6c1c1 0%, #d18888 100%);
+}
+
+#navigation a {
+    font-size: 18px;
+    color: black;
+    text-decoration: none;
+}
+
+#navigation a:hover {
+    text-decoration: underline;
+}
+
+#content {
+    padding-top: 10px;
+    min-height: 450px;
+    height: auto;
+    background: #d4cdd4;
+    background: -webkit-gradient(linear, left top, left bottom, from(#dbd0db), to(#d4cdd4));
+    background: -webkit-linear-gradient(top, #dbd0db, #d4cdd4);
+    background: -moz-linear-gradient(top, #dbd0db, #d4cdd4);
+    background: -ms-linear-gradient(top, #dbd0db, #d4cdd4);
+    background: -o-linear-gradient(top, #dbd0db, #d4cdd4);
+    background-image: -ms-linear-gradient(top, #dbd0db 0%, #d4cdd4 100%);
+    background: url(../img/contentBackground.jpg);
+}
+
+#clear {
+    clear: both;
+}
+
+#footer {
+    height: 80px;
+    background: #bfbfbf;
+    background: -webkit-gradient(linear, left top, left bottom, from(#d6d6d6), to(#bfbfbf));
+    background: -webkit-linear-gradient(top, #d6d6d6, #bfbfbf);
+    background: -moz-linear-gradient(top, #d6d6d6, #bfbfbf);
+    background: -ms-linear-gradient(top, #d6d6d6, #bfbfbf);
+    background: -o-linear-gradient(top, #d6d6d6, #bfbfbf);
+    background-image: -ms-linear-gradient(top, #d6d6d6 0%, #bfbfbf 100%);
+}
+
+#footer .title{
+    margin: 0 10px;
+    font-size: 18px;
+    font-style: italic;
+}
+
+
+#signInForm {
+    margin: 200px auto;
+    padding: 0 25px 0;
+    width: 280px;
+    background: #FEFEFE;
+    border: 1px solid #CAD8DE;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+    font: 14px/18px Arial, Tahoma, sans-serif;
+    color: #444;
+}
+
+#signInForm .field {
+    margin: 5px 0 10px;
+}
+
+#signInForm .field label {
+    display: block;
+    margin: 0 0 5px;
+}
+
+#signInForm .field input {
+    font: 12px Arial, Tahoma, sans-serif;
+    color: #444;
+    width: 270px;
+    padding: 4px 4px;
+    border: 1px solid #D2D9DC;
+    border-radius: 3px;
+    box-shadow: inset 2px 2px 6px #EBEBEB, 0 0 0 5px #F7F9FA;
+    outline: none;
+}
+
+#signInForm .field input:FOCUS {
+    border-color: #B7D4EA;
+    box-shadow: inset 2px 2px 6px #EBEBEB, 0 0 4px #D0E6F6, 0 0 0 5px #F2F8FC;
+}
+
+
+#signInForm .submit {
+    height: auto;
+    padding: 10px 25px;
+    margin: 0 -25px 0 -25px;
+    background: #F0F5F7;
+    border-top: 1px solid #DDE0E8;
+    border-radius: 0 0 4px 4px;
+    box-shadow: inset 0 1px #FFF, inset -1px -1px #F7FAFB, inset 1px 0 #F7FAFB;
+    font-size: 11px;
+}
+
+#signInForm .submit .remember {
+    display: block;
+    margin: 5px 0 0;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+#signInForm .errorMessage {
+    display: block;
+    font-style: italic;
+    font-size: 10px;
+    color: #c22330;
+}
+
+#signInForm .submit .remember input {
+    margin: 0 4px 0 0;
+    vertical-align: middle;
+}
+
+#signInForm .submit .regButton {
+    margin: 0 0 0 100px;
+    border: 0px solid #0a3c59;
+    background: #3e779d;
+    background: -webkit-gradient(linear, left top, left bottom, from(#65a9d7), to(#3e779d));
+    background: -webkit-linear-gradient(top, #65a9d7, #3e779d);
+    background: -moz-linear-gradient(top, #65a9d7, #3e779d);
+    background: -ms-linear-gradient(top, #65a9d7, #3e779d);
+    background: -o-linear-gradient(top, #65a9d7, #3e779d);
+    background-image: -ms-linear-gradient(top, #65a9d7 0%, #3e779d 100%);
+    padding: 3px 6px;
+    -webkit-box-shadow: rgba(255, 255, 255, 0.4) 0 0px 0, inset rgba(255, 255, 255, 0.4) 0 0px 0;
+    -moz-box-shadow: rgba(255, 255, 255, 0.4) 0 0px 0, inset rgba(255, 255, 255, 0.4) 0 0px 0;
+    box-shadow: rgba(255, 255, 255, 0.4) 0 0px 0, inset rgba(255, 255, 255, 0.4) 0 0px 0;
+    text-shadow: #7ea4bd 0 1px 0;
+    color: #000;
+    font-size: 16px;
+    font-family: helvetica, serif;
+}
+
+#signInForm .submit .signInButton {
+    float:right;
+    border: 0px solid #0a3c59;
+    background: #3e779d;
+    background: -webkit-gradient(linear, left top, left bottom, from(#65a9d7), to(#3e779d));
+    background: -webkit-linear-gradient(top, #65a9d7, #3e779d);
+    background: -moz-linear-gradient(top, #65a9d7, #3e779d);
+    background: -ms-linear-gradient(top, #65a9d7, #3e779d);
+    background: -o-linear-gradient(top, #65a9d7, #3e779d);
+    background-image: -ms-linear-gradient(top, #65a9d7 0%, #3e779d 100%);
+    padding: 3px 6px;
+    -webkit-box-shadow: rgba(255, 255, 255, 0.4) 0 0px 0, inset rgba(255, 255, 255, 0.4) 0 0px 0;
+    -moz-box-shadow: rgba(255, 255, 255, 0.4) 0 0px 0, inset rgba(255, 255, 255, 0.4) 0 0px 0;
+    box-shadow: rgba(255, 255, 255, 0.4) 0 0px 0, inset rgba(255, 255, 255, 0.4) 0 0px 0;
+    text-shadow: #7ea4bd 0 1px 0;
+    color: #000;
+    font-size: 16px;
+    font-family: helvetica, serif;
+}
+
+#signInForm .submit button:HOVER {
+    border: 0px solid #0a3c59;
+    text-shadow: #1e4158 0 1px 0;
+    background: #3e779d;
+    background: -webkit-gradient(linear, left top, left bottom, from(#65a9d7), to(#3e779d));
+    background: -webkit-linear-gradient(top, #65a9d7, #3e779d);
+    background: -moz-linear-gradient(top, #65a9d7, #3e779d);
+    background: -ms-linear-gradient(top, #65a9d7, #3e779d);
+    background: -o-linear-gradient(top, #65a9d7, #3e779d);
+    background-image: -ms-linear-gradient(top, #65a9d7 0%, #3e779d 100%);
+    color: #fff;
+    cursor: pointer;
+}
+
+#signInForm .submit button:ACTIVE {
+    text-shadow: #1e4158 0 1px 0;
+    border: 0px solid #0a3c59;
+    background: #65a9d7;
+    background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#3e779d));
+    background: -webkit-linear-gradient(top, #3e779d, #65a9d7);
+    background: -moz-linear-gradient(top, #3e779d, #65a9d7);
+    background: -ms-linear-gradient(top, #3e779d, #65a9d7);
+    background: -o-linear-gradient(top, #3e779d, #65a9d7);
+    background-image: -ms-linear-gradient(top, #3e779d 0%, #65a9d7 100%);
+    color: #fff;
+}
+
+
+#blogContainer {
+    width: 600px;
+    height: auto;
+    margin: auto;
+}
+
+#blogContainer .content_title {
+    width: 100%;
+    text-align: center;
+    margin: auto;
+    font-size: 20px;
+}
+
+#blogContainer .postPreview {
+    width: 400px;
+    height: auto;
+    margin: 20px auto 0;
+    border: 3px solid #5e57c9;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+
+#blogContainer .postPreview a {
+    color: black;
+    text-decoration: none;
+}
+
+#blogContainer .postPreview a:hover {
+    text-decoration: underline;
+}
+
+#blogContainer .postPreview .author {
+    text-align: left;
+    margin: 0 0 0 20px;
+    font-size: 14px;
+}
+
+
+
+#blogContainer .postPreview .title {
+    display: block;
+    margin: 0 10px 0 20px;
+    font-size: 22px;
+    font-style: italic;
+    word-wrap: break-word;
+}
+
+#blogContainer .postPreview .date {
+    display: block;
+    float: right;
+    margin: 0 10px 0 0;
+    font-size: 12px;
+}
+
+#searchContainer {
+    width: 600px;
+    height: auto;
+    margin: auto;
+}
+
+#paramsContainer {
+    width: 100%;
+    height: auto;
+    padding: 10px 0;
+}
+
+#searchForm {
+    width: 450px;
+    height: auto;
+    margin: auto;
+    padding: 10px 20px;
+    background: #c1c8d9;
+    border: 1px solid #D2D9DC;
+    border-radius: 3px;
+    box-shadow: inset 1px 1px 3px #EBEBEB, 0 0 0 2px #F7F9FA;
+    outline: none;
+    background: #c1c8d9;
+}
+
+#searchForm .title {
+    font-size: 20px;
+    font-style: italic;
+}
+
+#searchForm .settings {
+    margin-top: 5px;
+    height: 25px;
+}
+
+#searchForm .settings .setting {
+    float: left;
+    width: auto;
+    margin: 0 30px 0 0;
+}
+
+#searchForm .settings .setting label {
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#searchForm .settings .setting input {
+    vertical-align: middle;
+}
+
+#searchForm .submit {
+    width: 100%;
+    height: 25px;
+    margin-top: 10px;
+    border: 2px solid #fff;
+}
+
+#searchForm .submit .field {
+    float: left;
+    border: 1px solid #000000;
+    background: #ffffff;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    color: #050300;
+    -webkit-box-shadow: rgba(255, 255, 255, 0.4) 0 0px 0, inset rgba(000, 000, 000, 0.7) 0 0px 0px;
+    -moz-box-shadow: rgba(255, 255, 255, 0.4) 0 0px 0, inset rgba(000, 000, 000, 0.7) 0 0px 0px;
+    box-shadow: rgba(255, 255, 255, 0.4) 0 0px 0, inset rgba(000, 000, 000, 0.7) 0 0px 0px;
+    padding: 3px;
+    width: 340px;
+}
+
+#searchForm .submit button {
+    height: 25px;
+    width: 102px;
+    border: 0px solid #ffffff;
+    background: #3e779d;
+    background: -webkit-gradient(linear, left top, left bottom, from(#65a9d7), to(#3e779d));
+    background: -webkit-linear-gradient(top, #65a9d7, #3e779d);
+    background: -moz-linear-gradient(top, #65a9d7, #3e779d);
+    background: -ms-linear-gradient(top, #65a9d7, #3e779d);
+    background: -o-linear-gradient(top, #65a9d7, #3e779d);
+    background-image: -ms-linear-gradient(top, #65a9d7 0%, #3e779d 100%);
+    font-family: helvetica, serif;
+    font-size: 14px;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+#searchForm .submit button:hover {
+    border: 0px solid #0a3c59;
+    text-shadow: #1e4158 0 1px 0;
+    background: #3e779d;
+    background: -webkit-gradient(linear, left top, left bottom, from(#65a9d7), to(#3e779d));
+    background: -webkit-linear-gradient(top, #65a9d7, #3e779d);
+    background: -moz-linear-gradient(top, #65a9d7, #3e779d);
+    background: -ms-linear-gradient(top, #65a9d7, #3e779d);
+    background: -o-linear-gradient(top, #65a9d7, #3e779d);
+    background-image: -ms-linear-gradient(top, #65a9d7 0%, #3e779d 100%);
+    color: #fff;
+    cursor: pointer;
+}
+
+#searchForm .submit button:active {
+    text-shadow: #1e4158 0 1px 0;
+    border: 0px solid #0a3c59;
+    background: #65a9d7;
+    background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#3e779d));
+    background: -webkit-linear-gradient(top, #3e779d, #65a9d7);
+    background: -moz-linear-gradient(top, #3e779d, #65a9d7);
+    background: -ms-linear-gradient(top, #3e779d, #65a9d7);
+    background: -o-linear-gradient(top, #3e779d, #65a9d7);
+    background-image: -ms-linear-gradient(top, #3e779d 0%, #65a9d7 100%);
+    color: #fff;
+}
+
+#resultsContainer {
+    width: 100%;
+    height: auto;
+}
+
+#resultsContainer .header {
+    font-size: 20px;
+    font-style: italic;
+    margin: 5px 0;
+}
+
+#resultsContainer table {
+    width: 100%;
+    border-width: 2px;
+    border-collapse: collapse;
+    padding: 2px;
+    table-layout: fixed;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#resultsContainer th, #resultsContainer td {
+    border-style: solid;
+    border-width: 1px;
+    border-collapse: collapse;
+}
+
+#resultsContainer .tdContent {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#resultsContainer .tdContent a {
+    color: black;
+    text-decoration: none;
+}
+
+#resultsContainer .tdContent a:hover {
+    text-decoration: underline;
+}
+
+#resultsContainer .thTitle {
+    width: 65%;
+}
+
+#resultsContainer .thAuthor {
+    width: 20%;
+}
+
+#resultsContainer .thDate {
+    width: 15%;
+}
+
+#resultsContainer .thTitle, .thAuthor, .thDate {
+    padding: 5px 5px;
+    background: #d18888;
+    background: -webkit-gradient(linear, left top, left bottom, from(#e6c1c1), to(#d18888));
+    background: -webkit-linear-gradient(top, #e6c1c1, #d18888);
+    background: -moz-linear-gradient(top, #e6c1c1, #d18888);
+    background: -ms-linear-gradient(top, #e6c1c1, #d18888);
+    background: -o-linear-gradient(top, #e6c1c1, #d18888);
+    background-image: -ms-linear-gradient(top, #e6c1c1 0%, #d18888 100%);
+}
+
+#resultsContainer .title {
+    width: 65%;
+    background: #b8b8b8;
+    background: -webkit-gradient(linear, left top, left bottom, from(#e8e8e8), to(#b8b8b8));
+    background: -webkit-linear-gradient(top, #e8e8e8, #b8b8b8);
+    background: -moz-linear-gradient(top, #e8e8e8, #b8b8b8);
+    background: -ms-linear-gradient(top, #e8e8e8, #b8b8b8);
+    background: -o-linear-gradient(top, #e8e8e8, #b8b8b8);
+    background-image: -ms-linear-gradient(top, #e8e8e8 0%, #b8b8b8 100%);
+}
+
+#resultsContainer .author {
+    width: 20%;
+    background: #999894;
+    background: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#999894));
+    background: -webkit-linear-gradient(top, #f5f5f5, #999894);
+    background: -moz-linear-gradient(top, #f5f5f5, #999894);
+    background: -ms-linear-gradient(top, #f5f5f5, #999894);
+    background: -o-linear-gradient(top, #f5f5f5, #999894);
+    background-image: -ms-linear-gradient(top, #f5f5f5 0%, #999894 100%);
+    text-align: center;
+}
+
+#resultsContainer .date {
+    width: 15%;
+    background: #9e989e;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ccc8cc), to(#9e989e));
+    background: -webkit-linear-gradient(top, #ccc8cc, #9e989e);
+    background: -moz-linear-gradient(top, #ccc8cc, #9e989e);
+    background: -ms-linear-gradient(top, #ccc8cc, #9e989e);
+    background: -o-linear-gradient(top, #ccc8cc, #9e989e);
+    background-image: -ms-linear-gradient(top, #ccc8cc 0%, #9e989e 100%);
+    text-align: center;
+}
+
+#resultsContainer .title, .author, .date {
+    padding: 5px 5px;
+}
+
+#writePostForm {
+    margin: auto;
+    width: 550px;
+    height: auto;
+    padding: 5px 20px;
+    border: 1px solid #ffffff;
+    background: #798261;
+    background: -webkit-gradient(linear, left top, left bottom, from(#e9f0d3), to(#798261));
+    background: -webkit-linear-gradient(top, #e9f0d3, #798261);
+    background: -moz-linear-gradient(top, #e9f0d3, #798261);
+    background: -ms-linear-gradient(top, #e9f0d3, #798261);
+    background: -o-linear-gradient(top, #e9f0d3, #798261);
+    background-image: -ms-linear-gradient(top, #e9f0d3 0%, #798261 100%);
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: rgba(000, 000, 000, 0.9) 0 1px 2px, inset rgba(255, 255, 255, 0.4) 0 0px 0;
+    -moz-box-shadow: rgba(000, 000, 000, 0.9) 0 1px 2px, inset rgba(255, 255, 255, 0.4) 0 0px 0;
+    box-shadow: rgba(000, 000, 000, 0.9) 0 1px 2px, inset rgba(255, 255, 255, 0.4) 0 0px 0;
+    font-family: 'Helvetica Neue', Helvetica, sans-serif;
+    text-decoration: none;
+}
+
+#writePostForm .title {
+    margin: 5px 0;
+    font-size: 20px;
+    font-style: italic;
+    display: block;
+    text-align: center;
+}
+
+#writePostForm .inputTitle {
+    margin: 5px 0;
+    font-size: 20px;
+    font-style: italic;
+    display: block;
+}
+
+#writePostForm .titleTextArea {
+    width: 400px;
+    height: 40px;
+    padding: 5px;
+    font-family: Tahoma, sans-serif;
+    font-size: 14px;
+    border: 1px solid #ffffff;
+}
+
+#writePostForm .contentTextArea {
+    width: 500px;
+    height: 80px;
+    padding: 5px;
+    font-family: Tahoma, sans-serif;
+    font-size: 14px;
+    border: 1px solid #ffffff;
+}
+
+#writePostForm .errorMessage{
+    margin: 5px 0px;
+    display: block;
+    color: red;
+}
+
+#writePostForm button {
+    padding: 3px 5px;
+    border: 0px solid #ffffff;
+    background: #3e779d;
+    background: -webkit-gradient(linear, left top, left bottom, from(#65a9d7), to(#3e779d));
+    background: -webkit-linear-gradient(top, #65a9d7, #3e779d);
+    background: -moz-linear-gradient(top, #65a9d7, #3e779d);
+    background: -ms-linear-gradient(top, #65a9d7, #3e779d);
+    background: -o-linear-gradient(top, #65a9d7, #3e779d);
+    background-image: -ms-linear-gradient(top, #65a9d7 0%, #3e779d 100%);
+    font-family: helvetica, serif;
+    font-size: 14px;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+#writePostForm button:hover {
+    border: 0px solid #0a3c59;
+    text-shadow: #1e4158 0 1px 0;
+    background: #3e779d;
+    background: -webkit-gradient(linear, left top, left bottom, from(#65a9d7), to(#3e779d));
+    background: -webkit-linear-gradient(top, #65a9d7, #3e779d);
+    background: -moz-linear-gradient(top, #65a9d7, #3e779d);
+    background: -ms-linear-gradient(top, #65a9d7, #3e779d);
+    background: -o-linear-gradient(top, #65a9d7, #3e779d);
+    background-image: -ms-linear-gradient(top, #65a9d7 0%, #3e779d 100%);
+    color: #fff;
+    cursor: pointer;
+}
+
+#writePostForm button:active {
+    text-shadow: #1e4158 0 1px 0;
+    border: 0px solid #0a3c59;
+    background: #65a9d7;
+    background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#3e779d));
+    background: -webkit-linear-gradient(top, #3e779d, #65a9d7);
+    background: -moz-linear-gradient(top, #3e779d, #65a9d7);
+    background: -ms-linear-gradient(top, #3e779d, #65a9d7);
+    background: -o-linear-gradient(top, #3e779d, #65a9d7);
+    background-image: -ms-linear-gradient(top, #3e779d 0%, #65a9d7 100%);
+    color: #fff;
+}
+
+#userInfo {
+    width: 450px;
+    height: auto;
+    margin: auto;
+    padding: 10px 20px;
+    background: #c1c8d9;
+    border: 1px solid #D2D9DC;
+    border-radius: 3px;
+    box-shadow: inset 1px 1px 3px #EBEBEB, 0 0 0 2px #F7F9FA;
+    outline: none;
+    background: #c1c8d9;
+}
+
+#userInfo .field {
+    display: block;
+    font-size: 18px;
+    margin: 3px;
+}
+
+#userInfo .aboutArea {
+    width: 450px;
+    height: 60px;
+    padding: 3px;
+    font-family: Tahoma, sans-serif;
+    border: 1px solid #ffffff;
+}
+
+#userInfo button {
+    margin: 3px 0;
+    padding: 3px 5px;
+    border: 0px solid #ffffff;
+    background: #3e779d;
+    background: -webkit-gradient(linear, left top, left bottom, from(#65a9d7), to(#3e779d));
+    background: -webkit-linear-gradient(top, #65a9d7, #3e779d);
+    background: -moz-linear-gradient(top, #65a9d7, #3e779d);
+    background: -ms-linear-gradient(top, #65a9d7, #3e779d);
+    background: -o-linear-gradient(top, #65a9d7, #3e779d);
+    background-image: -ms-linear-gradient(top, #65a9d7 0%, #3e779d 100%);
+    font-family: helvetica, serif;
+    font-size: 14px;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+#userInfo button:hover {
+    border: 0px solid #0a3c59;
+    text-shadow: #1e4158 0 1px 0;
+    background: #3e779d;
+    background: -webkit-gradient(linear, left top, left bottom, from(#65a9d7), to(#3e779d));
+    background: -webkit-linear-gradient(top, #65a9d7, #3e779d);
+    background: -moz-linear-gradient(top, #65a9d7, #3e779d);
+    background: -ms-linear-gradient(top, #65a9d7, #3e779d);
+    background: -o-linear-gradient(top, #65a9d7, #3e779d);
+    background-image: -ms-linear-gradient(top, #65a9d7 0%, #3e779d 100%);
+    color: #fff;
+    cursor: pointer;
+}
+
+#userInfo button:active {
+    text-shadow: #1e4158 0 1px 0;
+    border: 0px solid #0a3c59;
+    background: #65a9d7;
+    background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#3e779d));
+    background: -webkit-linear-gradient(top, #3e779d, #65a9d7);
+    background: -moz-linear-gradient(top, #3e779d, #65a9d7);
+    background: -ms-linear-gradient(top, #3e779d, #65a9d7);
+    background: -o-linear-gradient(top, #3e779d, #65a9d7);
+    background-image: -ms-linear-gradient(top, #3e779d 0%, #65a9d7 100%);
+    color: #fff;
+}
+
+#postContainer {
+    width: 560px;
+    height: auto;
+    padding: 20px;
+    background: url(../img/bg.gif);
+    -webkit-border-radius: 24px;
+    -moz-border-radius: 24px;
+    border-radius: 24px;
+    background: url(../img/bg.gif);
+    padding: 20px;
+}
+
+#postContainer .authorField {
+    width: auto;
+    float: left;
+    font-size: 14px;
+}
+
+#postContainer .nickname {
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+}
+
+#postContainer a:hover {
+    text-decoration: underline;
+}
+
+#postContainer .postDate {
+    float: right;
+    width: auto;
+    font-size: 14px;
+}
+
+#postContainer .postTitle {
+    float: right;
+    width: 100%;
+    height: auto;
+    font-size: 26px;
+    word-wrap: break-word;
+}
+
+#postContainer .postContent {
+    float: right;
+    width: 100%;
+    height: auto;
+    font-size: 18px;
+    word-wrap: break-word;
+}
+
+#postContainer .commentContainer {
+    width: 80%;
+    height: auto;
+    margin: 10px;
+    background: #d1cac2;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+#postContainer .commentContainer .header {
+    width: 100%;
+    height: 20px;
+    border-bottom: 2px solid #fff;
+    background: #c9b7a2;
+    font-size: 14px;
+}
+
+#postContainer .commentContainer .header .author {
+    float: left;
+    width: 200px;
+    margin: 0 0 0 5px;
+    white-space: nowrap; overflow : hidden; text-overflow : ellipsis;
+    padding: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#postContainer .commentContainer .header .date {
+    float: right;
+    padding: 0;
+}
+
+#postContainer .commentContainer .content {
+    margin: auto;
+    width: 90%;
+    padding: 5px;
+    font-size: 16px;
+    word-wrap: break-word;
+}
+
+#postContainer .commentsTitle {
+    display: block; width : 100%;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-style: italic;
+    width: 100%;
+}
+
+#postContainer .removeForm {
+    float: right;
+}
+
+#postContainer .removeForm button {
+    border: 0px solid #ffffff;
+    background: #3e779d;
+    background: -webkit-gradient(linear, left top, left bottom, from(#65a9d7), to(#3e779d));
+    background: -webkit-linear-gradient(top, #65a9d7, #3e779d);
+    background: -moz-linear-gradient(top, #65a9d7, #3e779d);
+    background: -ms-linear-gradient(top, #65a9d7, #3e779d);
+    background: -o-linear-gradient(top, #65a9d7, #3e779d);
+    background-image: -ms-linear-gradient(top, #65a9d7 0%, #3e779d 100%);
+    font-family: helvetica, serif;
+    font-size: 14px;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+#postContainer .removeForm button:hover {
+    border: 0px solid #0a3c59;
+    text-shadow: #1e4158 0 1px 0;
+    background: #3e779d;
+    background: -webkit-gradient(linear, left top, left bottom, from(#65a9d7), to(#3e779d));
+    background: -webkit-linear-gradient(top, #65a9d7, #3e779d);
+    background: -moz-linear-gradient(top, #65a9d7, #3e779d);
+    background: -ms-linear-gradient(top, #65a9d7, #3e779d);
+    background: -o-linear-gradient(top, #65a9d7, #3e779d);
+    background-image: -ms-linear-gradient(top, #65a9d7 0%, #3e779d 100%);
+    color: #fff;
+    cursor: pointer;
+}
+
+#postContainer .removeForm button:active {
+    text-shadow: #1e4158 0 1px 0;
+    border: 0px solid #0a3c59;
+    background: #65a9d7;
+    background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#3e779d));
+    background: -webkit-linear-gradient(top, #3e779d, #65a9d7);
+    background: -moz-linear-gradient(top, #3e779d, #65a9d7);
+    background: -ms-linear-gradient(top, #3e779d, #65a9d7);
+    background: -o-linear-gradient(top, #3e779d, #65a9d7);
+    background-image: -ms-linear-gradient(top, #3e779d 0%, #65a9d7 100%);
+    color: #fff;
+}
+
+#postContainer .addCommentForm {
+    margin: 10px;
+    width: 450px;
+    height: auto;
+    padding: 5px;
+    background: #c1c8d9;
+    border: 1px solid #D2D9DC;
+    border-radius: 3px;
+    box-shadow: inset 1px 1px 3px #EBEBEB, 0 0 0 2px #F7F9FA;
+    outline: none;
+    background: #c1c8d9;
+}
+
+#postContainer .addCommentForm .title {
+    font-size: 18px;
+    font-style: italic;
+}
+
+#postContainer .addCommentForm .errorMessage{
+    display:block;
+    font-size: 14px;
+    color: red;
+}
+
+#postContainer .addCommentForm .commentTextArea {
+    width: 430px;
+    height: 60px;
+    padding: 5px;
+    font-family: Tahoma, sans-serif;
+    font-size: 14px;
+    border: 1px solid #ffffff;
+}
+
+#postContainer .addCommentForm button {
+    border: 0px solid #0a3c59;
+    background: #3e779d;
+    background: -webkit-gradient(linear, left top, left bottom, from(#65a9d7), to(#3e779d));
+    background: -webkit-linear-gradient(top, #65a9d7, #3e779d);
+    background: -moz-linear-gradient(top, #65a9d7, #3e779d);
+    background: -ms-linear-gradient(top, #65a9d7, #3e779d);
+    background: -o-linear-gradient(top, #65a9d7, #3e779d);
+    background-image: -ms-linear-gradient(top, #65a9d7 0%, #3e779d 100%);
+    padding: 3px 6px;
+    -webkit-box-shadow: rgba(255, 255, 255, 0.4) 0 0px 0, inset rgba(255, 255, 255, 0.4) 0 0px 0;
+    -moz-box-shadow: rgba(255, 255, 255, 0.4) 0 0px 0, inset rgba(255, 255, 255, 0.4) 0 0px 0;
+    box-shadow: rgba(255, 255, 255, 0.4) 0 0px 0, inset rgba(255, 255, 255, 0.4) 0 0px 0;
+    text-shadow: #7ea4bd 0 1px 0;
+    color: #000;
+    font-size: 15px;
+    font-family: helvetica, serif;
+}
+
+#postContainer .addCommentForm button:hover {
+    border: 0px solid #0a3c59;
+    text-shadow: #1e4158 0 1px 0;
+    background: #3e779d;
+    background: -webkit-gradient(linear, left top, left bottom, from(#65a9d7), to(#3e779d));
+    background: -webkit-linear-gradient(top, #65a9d7, #3e779d);
+    background: -moz-linear-gradient(top, #65a9d7, #3e779d);
+    background: -ms-linear-gradient(top, #65a9d7, #3e779d);
+    background: -o-linear-gradient(top, #65a9d7, #3e779d);
+    background-image: -ms-linear-gradient(top, #65a9d7 0%, #3e779d 100%);
+    color: #fff;
+    cursor: pointer;
+}
+
+#postContainer .addCommentForm button:active {
+    text-shadow: #1e4158 0 1px 0;
+    border: 0px solid #0a3c59;
+    background: #65a9d7;
+    background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#3e779d));
+    background: -webkit-linear-gradient(top, #3e779d, #65a9d7);
+    background: -moz-linear-gradient(top, #3e779d, #65a9d7);
+    background: -ms-linear-gradient(top, #3e779d, #65a9d7);
+    background: -o-linear-gradient(top, #3e779d, #65a9d7);
+    background-image: -ms-linear-gradient(top, #3e779d 0%, #65a9d7 100%);
+    color: #fff;
+}
+
+#adminContentTitle {
+    font-size: 20px;
+    margin: auto;
+    text-align: center;
+}
+
+textarea {
+    resize: none;
+}

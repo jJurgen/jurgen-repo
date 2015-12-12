@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+                        http://www.springframework.org/schema/context
+                        http://www.springframework.org/schema/context/spring-context-4.2.xsd
+                        http://www.springframework.org/schema/mvc 
+			http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+                        http://www.springframework.org/schema/security
+                        http://www.springframework.org/schema/security/spring-security-4.0.xsd
+                        http://www.springframework.org/schema/tx
+                        http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
+    
+    
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:db.properties" />
+    </bean>    
+    
+    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory" /> 
+    </bean>
+    
+    <tx:annotation-driven proxy-target-class="true"/>
+    
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
+    
+    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="${db.url}" />
+        <property name="username" value="${db.user}" />
+        <property name="password" value="${db.password}" />   
+    </bean>
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="packagesToScan" value="com.jurgen.blog.domain" />        
+        <property name="hibernateProperties">
+            <value>
+                hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
+                hibernate.hbm2ddl.auto=update
+                hibernate.show_sql=true
+            </value>
+        </property>
+    </bean>
+    
+    <context:annotation-config />
+    <context:component-scan base-package="com.jurgen.blog" />
+    <mvc:annotation-driven />
+
+    
+    <!--                         SECURITY CONFIGURATION                              -->
+    <security:http auto-config="true">
+        <security:intercept-url pattern="/writePost" access="hasRole('ROLE_USER')" />
+        <security:form-login 
+            login-page="/signIn"
+            default-target-url="/home"
+            authentication-failure-url="/signIn?error=invalidData"            
+        />
+        <security:logout 
+            logout-url="/logout"
+            logout-success-url="/home"            
+        />
+        <security:csrf disabled="true" />
+    </security:http>
+    
+    <security:authentication-manager>
+        <security:authentication-provider user-service-ref="userService" />
+    </security:authentication-manager>
+    
+</beans>

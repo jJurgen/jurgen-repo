@@ -41,7 +41,7 @@ public class User implements UserDetails {
     @Column(nullable = false)
     private String password;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "author")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "author",cascade = CascadeType.ALL)
     @JsonBackReference
     private List<Message> messages = new LinkedList<>();
 

@@ -1,6 +1,7 @@
 package com.jurgen.chat.services;
 
 import com.jurgen.chat.domain.Message;
+import com.jurgen.chat.domain.User;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
